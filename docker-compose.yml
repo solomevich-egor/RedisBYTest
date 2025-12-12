@@ -1,0 +1,14 @@
+services:
+  app:
+    build:
+      context: app/
+      args:
+        BUILD_MODE: test
+    command: sh /start-reload.sh
+    volumes:
+      - ./app:/app
+    restart: always
+    ports:
+      - "8080:80"
+    env_file:
+      - .env
